@@ -19,6 +19,18 @@ do
 	then
 		before=$(echo $string | awk '{print $2}')
 		after=$(grep read_bytes $file | awk '{print $2}')
-		echo $pid ":" $(expr $after - $before)
+		if [[ -f /proc/$pid/cmdline ]]
+		then
+			tmp=$(tr -d '\0' < /proc/$pid/cmdline)
+			if [[ -z $tmp ]]
+				then
+					cmd="void"
+				else
+					cmd=$tmp
+			fi
+		else
+			cmd="void"
+		fi
+		echo $pid ":" $cmd ":" $(expr $after - $before)
 	fi
-done < 7_before | sort -nk 2 | head -3
+done < 7_before | sort -nk 3 | head -3

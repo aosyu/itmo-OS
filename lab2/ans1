@@ -40,7 +40,7 @@
 463 : [scsi_tmf_0]
 464 : [scsi_eh_1]
 466 : [scsi_tmf_1]
-467 : [kworker/u2:2-events_unbound]
+467 : [kworker/u2:2-flush-253:0]
 468 : [scsi_eh_2]
 469 : [scsi_tmf_2]
 533 : [kdmflush]
@@ -80,7 +80,6 @@
 860 : /usr/sbin/sssd
 862 : /usr/sbin/smartd
 863 : /usr/sbin/mcelog
-874 : avahi-daemon:
 879 : /usr/libexec/sssd/sssd_be
 881 : /usr/libexec/sssd/sssd_nss
 884 : /usr/libexec/platform-python
@@ -98,11 +97,10 @@
 6006 : git
 6015 : /usr/libexec/git-core/git
 6016 : /usr/bin/vi
-6031 : [kworker/u2:0-flush-253:2]
-6214 : [kworker/0:1-events]
-6295 : [kworker/0:0-ata_sff]
-6296 : [kworker/0:2-ata_sff]
-6309 : bash
-6312 : ps
-6313 : grep
-6314 : awk
+6031 : [kworker/u2:0-events_unbound]
+122482 : [kworker/0:2-events]
+134634 : [kworker/0:0-mm_percpu_wq]
+138596 : [kworker/0:1-ata_sff]
+140734 : bash
+140737 : ps
+140738 : awk

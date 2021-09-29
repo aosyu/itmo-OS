@@ -3,9 +3,11 @@
 touch full.log
 echo "" > full.log
 
-replaced=$(sed -e 's/(\*\*)/Warning:/; s/(II)/Information:/' /var/log/anaconda/X.log)
+sed -e 's/(\*\*)/Warning:/; s/(II)/Information:/' /var/log/anaconda/X.log >> temp.txt
 
-echo "$replaced" | grep "Warning:" >> full.log
-echo "$replaced" | grep "Information:" >> full.log
+grep "Warning:" temp.txt >> full.log
+grep "Information" temp.txt >> full.log
 
 cat full.log
+
+rm temp.txt

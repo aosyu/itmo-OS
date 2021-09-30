@@ -9,7 +9,7 @@ do
 	fi
 done > 7_before
 
-#sleep 1m
+sleep 1m
 
 while read string
 do

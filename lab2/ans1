@@ -1,4 +1,4 @@
-106
+105
 1 : /usr/lib/systemd/systemd
 2 : [kthreadd]
 3 : [rcu_gp]
@@ -40,7 +40,7 @@
 463 : [scsi_tmf_0]
 464 : [scsi_eh_1]
 466 : [scsi_tmf_1]
-467 : [kworker/u2:2-flush-253:0]
+467 : [kworker/u2:2-events_unbound]
 468 : [scsi_eh_2]
 469 : [scsi_tmf_2]
 533 : [kdmflush]
@@ -97,10 +97,9 @@
 6006 : git
 6015 : /usr/libexec/git-core/git
 6016 : /usr/bin/vi
-6031 : [kworker/u2:0-events_unbound]
-122482 : [kworker/0:2-events]
-134634 : [kworker/0:0-mm_percpu_wq]
-138596 : [kworker/0:1-ata_sff]
-140734 : bash
-140737 : ps
-140738 : awk
+6031 : [kworker/u2:0-flush-253:0]
+162250 : [kworker/0:2-events_power_efficient]
+162304 : [kworker/0:1-ata_sff]
+162341 : [kworker/0:0-ata_sff]
+162350 : bash
+162351 : ps

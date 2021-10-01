@@ -24,11 +24,13 @@ else
 	for file in $(ls $source_path) ; do
 		if [[ -f $path/$file ]] ; then
 			if [[ $(stat $path/$file -c%s) -ne $(stat $source_path/$file -c%s) ]] ; then
-				echo $file
+				mv $path/$file $path/$file.$date_now
+				cp $source_path/$file $path
 			fi
 		else
 			cp $source_path/$file $path
 		fi
 	done
+	
 
 fi

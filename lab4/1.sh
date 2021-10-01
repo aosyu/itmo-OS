@@ -13,9 +13,9 @@ if ! [[ -f $file ]] ; then
 fi
 
 link=`ls $dir | wc -l`
-let link=$number+1
+let link=$link+1
 
 ln $file "$dir/$link" &&
 rm $file &&
-echo `realpath "$file"` $link >> /home/trash.log
+echo `realpath "$file"`=$link >> /home/trash.log
 

@@ -1,5 +1,10 @@
 #!/bin/bash
 
+#bash pr.sh &
+#bash pr.sh &
+#bash pr.sh &
+
+#sleep 1m
 
 for pid in $(ps -Ao pid --no-header)
 do
@@ -8,6 +13,6 @@ do
 	then
 		echo `grep VmSize /proc/$pid/status | awk '{print $2}'`
 	fi
-done | sort -n | tail -1
+done | sort -n | tail -3
 
-top -o VIRT | head -8 | tail -2
+top -o VIRT | head -11 | tail -4

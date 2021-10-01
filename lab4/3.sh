@@ -21,16 +21,22 @@ if (( $diff > 7 )) ; then
 else
 	path=/home/user/$last
 	source_path=/home/user/source
+	added_files=""
+	modified_files=""
 	for file in $(ls $source_path) ; do
 		if [[ -f $path/$file ]] ; then
 			if [[ $(stat $path/$file -c%s) -ne $(stat $source_path/$file -c%s) ]] ; then
 				mv $path/$file $path/$file.$date_now
 				cp $source_path/$file $path
+				modified_files+="$file $file.$date_now, "
 			fi
 		else
 			cp $source_path/$file $path
+			added_files+="$file, "
 		fi
 	done
-	
-
+	report=/home/user/backup-report
+		echo $last "catalog modified" $date_now >> $report
+		echo "Added files: $added_files" >> $report
+		echo "Modified files: $modified_files" >> $report
 fi

@@ -9,8 +9,6 @@ date_now=`date +'%Y-%m-%d'`
 date_now_s=`date -d $date_now +%s`
 diff=$((($date_now_s-$date_last_s)/86400))
 
-# TODO :: if there is no Backup directory
-
 if (( $diff > 7 )) ; then
 	newdir=Backup-$date_now
 	mkdir $newdir

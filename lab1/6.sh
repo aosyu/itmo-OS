@@ -1,7 +1,6 @@
 #!/bin/bash
 
 touch full.log
-#echo "" > full.log
 
 sed -e 's/(\*\*)/Warning:/; s/(II)/Information:/' /var/log/anaconda/X.log >> temp.txt
 

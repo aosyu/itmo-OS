@@ -13,8 +13,13 @@ while read line; do
 			path=`echo $fullname | rev | cut -d'/' -f 2- | rev`
 
 			if ! [[ -d $path ]] ; then
-				echo "This catalog is not found. The file will be restored to /home"
-				path=/home
+				echo "This catalog is not found. Choose catalog to restore the file"
+				read catalog <&1
+				while ! [[ -d $catalog ]] ; do
+					echo "No such catalog. Try another one"
+					read catalog <&1
+				done
+				path=$catalog
 			fi
 			fullname=$path/$filename
 

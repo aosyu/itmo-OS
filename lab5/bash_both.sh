@@ -1,5 +1,5 @@
 #!/bin/bash
 
-./mem.bash &
-./mem2.bash &
-tracking2.sh
+bash mem.bash &
+bash mem2.bash &
+bash tracking2.sh

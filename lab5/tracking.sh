@@ -11,7 +11,6 @@ while ps -p $PID > /dev/null ; do
 	cat top.txt | grep $PID >> current_process_params
 	cat top.txt | grep MiB >> system_memory_params
 	cat top.txt | head -12 | tail -5 >> 5_first_processes
-	echo "ho"
 	sleep 1
 done
 

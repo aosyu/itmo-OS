@@ -20,9 +20,9 @@ do
 	then
 		echo "`grep VmSize /proc/$pid/status | awk '{print $2}'` $pid"
 	fi
-done | sort -n | tail -1 > pid1
+done | sort -n | tail -1 | awk '{print $2}' > pid1
 
-pid2=`top -o VIRT | head -8 | tail -1 | awk '{print $2}'`
+pid2=`top -bn 1 -o VIRT | head -8 | tail -1 | awk '{print $1}'`
 
 kill $PID
 
@@ -31,5 +31,7 @@ if [[ $PID -eq `cat pid1` ]] ; then
 		echo 'Victory!'
 	fi
 fi
+
+exit
 esac
 done

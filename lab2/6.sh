@@ -1,18 +1,35 @@
 #!/bin/bash
 
-#bash pr.sh &
-#bash pr.sh &
-#bash pr.sh &
+PID=`cat pid`
 
-#sleep 1m
+echo $$ > .pid
+usr1()
+{
+	op="DONE"
+}
+trap 'usr1' USR1
+
+while true; do
+case $op in
+	DONE)
 
 for pid in $(ps -Ao pid --no-header)
 do
 	file=/proc/$pid/status
 	if [[ -f $file ]]
 	then
-		echo `grep VmSize /proc/$pid/status | awk '{print $2}'`
+		echo "`grep VmSize /proc/$pid/status | awk '{print $2}'` $pid"
 	fi
-done | sort -n | tail -3
+done | sort -n | tail -1 > pid1
 
-top -o VIRT | head -11 | tail -4
+pid2=`top -o VIRT | head -8 | tail -1 | awk '{print $2}'`
+
+kill $PID
+
+if [[ $PID -eq `cat pid1` ]] ; then
+	if [[ $PID -eq $pid2 ]] ; then
+		echo 'Victory!'
+	fi
+fi
+esac
+done
